@@ -61,7 +61,7 @@ const users = [
 ]
 
 
-let phoneNumbers = []
+const phoneNumbers = []
 
 for (let i = 0; i < users.length; i++) {
   const user = users[i]
@@ -76,15 +76,13 @@ let usersTotalBalance = 0
 
 for (let i = 0; i < users.length; i++) {
   const balance = parseFloat(users[i].balance.replace("$", "").replace(",", ""))
-  
-  if (balance > 2000) {
-    const roundedBalance = Math.round(balance)
-    usersTotalBalance += roundedBalance
-  }
+  usersTotalBalance += balance
 }
+
+usersTotalBalance = Math.round(usersTotalBalance * 100) / 100
 
 const resultMessage = 
   'Users numbers: ' + phoneNumbers + '\n' +
-  'Сума балансів користувачів: ' + usersTotalBalance
+  'Сума всіх балансів користувачів: ' + usersTotalBalance
 
   alert(resultMessage)
